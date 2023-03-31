@@ -213,6 +213,92 @@ public class ZeroAccidentsTest1Test
         }
     }
 
+    [Test]
+    public void omit_age_experience5_Test7()
+    {
+        //ARRANGE
+        driver.Navigate().GoToUrl(baseURL);
+        driver.Manage().Window.Size = new System.Drawing.Size(925, 816);
+
+        //ACT
+        driver.FindElement(By.Id("firstName")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Gourav");
+        driver.FindElement(By.Id("lastName")).SendKeys("Avala");
+        driver.FindElement(By.Id("address")).SendKeys("749 Lawrence Street");
+        driver.FindElement(By.Id("city")).SendKeys("Cambridge");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N3G 0A8");
+        driver.FindElement(By.Id("phone")).SendKeys("518-718-4902");
+        driver.FindElement(By.Id("email")).SendKeys("gouravawala2003@gmail.com");
+        driver.FindElement(By.Id("experience")).SendKeys("10");
+        driver.FindElement(By.Id("accidents")).Click();
+        driver.FindElement(By.Id("accidents")).SendKeys("2");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+
+        //ASSERT
+        {
+            string value = driver.FindElement(By.Id("age")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo(string.Empty));
+        }
+    }
+
+
+    [Test]
+    public void omit_accidents_experience8_age37_Test8()
+    {
+        //ARRANGE
+        driver.Navigate().GoToUrl(baseURL);
+        driver.Manage().Window.Size = new System.Drawing.Size(925, 816);
+
+        //ACT
+        driver.FindElement(By.Id("firstName")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Gourav");
+        driver.FindElement(By.Id("lastName")).SendKeys("Avala");
+        driver.FindElement(By.Id("address")).SendKeys("749 Lawrence Street");
+        driver.FindElement(By.Id("city")).SendKeys("Cambridge");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N3G 0A8");
+        driver.FindElement(By.Id("phone")).SendKeys("518-718-4902");
+        driver.FindElement(By.Id("email")).SendKeys("gouravawala2003@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("37");
+        driver.FindElement(By.Id("experience")).SendKeys("8");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+
+        //ASSERT
+        {
+            string value = driver.FindElement(By.Id("accidents")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo(string.Empty));
+        }
+    }
+
+    [Test]
+    public void omit_experience_zero_Accidents_age45_Test9()
+    {
+        //ARRANGE
+        driver.Navigate().GoToUrl(baseURL);
+        driver.Manage().Window.Size = new System.Drawing.Size(925, 816);
+
+        //ACT
+        driver.FindElement(By.Id("firstName")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Gourav");
+        driver.FindElement(By.Id("lastName")).SendKeys("Avala");
+        driver.FindElement(By.Id("address")).SendKeys("749 Lawrence Street");
+        driver.FindElement(By.Id("city")).SendKeys("Cambridge");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N3G 0A8");
+        driver.FindElement(By.Id("phone")).SendKeys("518-718-4902");
+        driver.FindElement(By.Id("email")).SendKeys("gouravawala2003@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("45");
+        driver.FindElement(By.Id("accidents")).Click();
+        driver.FindElement(By.Id("accidents")).SendKeys("0");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+
+        //ASSERT
+        {
+            string value = driver.FindElement(By.Id("experience")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo(string.Empty));
+        }
+    }
 
 
 }
